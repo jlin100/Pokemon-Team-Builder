@@ -1,0 +1,11 @@
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+    width: 25%;
+}
+
+body {
+    background-image: linear-gradient(125deg, rgb(209, 252, 252), rgb(230, 247, 214));
+}

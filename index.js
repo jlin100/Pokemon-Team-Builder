@@ -1,4 +1,3 @@
-const pokemonContainer = document.querySelector("[data-pokemon-container]");
 
 async function fetchPokemon() {
         for(let i = 1; i <= 151; i++) {
@@ -12,7 +11,6 @@ async function fetchPokemon() {
             pokemon["type"] = data.types
             .map((type) => type.type.name)
             .join(", ")
-            
             displayPokemon(pokemon);
         })
         
@@ -21,48 +19,31 @@ async function fetchPokemon() {
 fetchPokemon();
 
 function displayPokemon(pokemon) {
-    // const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const id = `#${pokemon.id.toString().padStart(3, "0")}`;
-    // const type = (pokemon.type[0].toUpperCase() + pokemon.type.slice(1)).split(",")[0];
+    const type = (pokemon.type[0].toUpperCase() + pokemon.type.slice(1)).split(",")[0];
 
-    const pokemonID = document.getElementById("pokeid")
+    const allPokemonContainer = document.getElementById("allPokemonContainer");
+    const pokemonContainer = document.createElement("div")
+    pokemonContainer.setAttribute("id", "pokemonContainer")
+
+    const img = document.createElement("img");
+    img.setAttribute("id", "pokemonImage");
+    img.src = pokemon.image;
+
+    const pokemonID = document.createElement("div");
+    pokemonID.setAttribute("id", "pokemonID");
     pokemonID.innerHTML = id;
-    document.body.appendChild(pokemonID);
-
-
-    // const pokemonID = document.createElement("div");
-    // pokemonID.setAttribute("id", "id");
-    // pokemonID.innerHTML = id;
-    // document.appendChild(pokemonID);
-
-    // const img = document.createElement("img");
-    // img.setAttribute("id", "pokemonImage");
-    // img.src = pokemon.image;
-    // document.body.appendChild(img);
     
-    // const pokemonName = document.createElement("div");
-    // pokemonName.setAttribute("id", "pokemonName");
-    // pokemonName.innerHTML = name;
-    // document.body.appendChild(pokemonName);
+    const pokemonName = document.createElement("div");
+    pokemonName.setAttribute("id", "pokemonName");
+    pokemonName.innerHTML = name;
 
-    // const pokemonType = document.createElement("div");
-    // pokemonType.setAttribute("id", "pokemonType");
-    // pokemonType.innerHTML = type;
-    // document.body.appendChild(pokemonType);  
+    const pokemonType = document.createElement("div");
+    pokemonType.setAttribute("id", "pokemonType");
+    pokemonType.innerHTML = type; 
+
+    pokemonContainer.append(img, pokemonID, pokemonName, pokemonType);
+    allPokemonContainer.appendChild(pokemonContainer);
 
 }
-
-// const pokemonCardTemplate = document.getElementById("dataPokemonTemplate")
-
-// fetch(`https://pokeapi.co/api/v2/pokemon/ditto`)
-//     .then(res => res.json())
-//     .then(data => {
-//         data.forEach(data => {
-//             const card = pokemonCardTemplate.content.cloneNode(True).children[0];
-//             const id = card.querySelector("[data-id");
-//             const name = card.querySelector("[data-name");
-//             id.textContent = data.id;
-//             name.textContent = data.name;
-//         })
-//     })
-

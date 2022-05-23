@@ -11,7 +11,7 @@ async function fetchPokemon() {
             pokemon["type"] = data.types
             .map((type) => type.type.name)
             .join(", ")
-            displayPokemon(pokemon);
+            
             searchBar(pokemon);
         })    
         
@@ -20,16 +20,22 @@ async function fetchPokemon() {
 fetchPokemon();
 
 function searchBar(pokemon) {
+    const filterArray = [];
     const search = document.getElementById("search")
-
+    
     search.addEventListener("input", (e) => {
-        const value = e.target.value
-        const filterPokemon = Object.values(pokemon).filter( searchPokemon => {
-            // return (pokemon.name.includes(value))
-            console.log(pokemon.name)
+        const value = e.target.value.toLowerCase()
+        const pokemonArray = Object.values(pokemon)
+        const grabName = pokemonArray[0]
+        if (!filterArray.includes(grabName))
+        filterArray.push(grabName)
+        
+        const filterPokemon = filterArray.filter(pokemon => {
+            return (grabName.includes(value));
         })
-        searchBar(filterPokemon);
+        console.log(filterPokemon)
     })
+    displayPokemon(pokemon)
 } 
 
 function displayPokemon(pokemon) {

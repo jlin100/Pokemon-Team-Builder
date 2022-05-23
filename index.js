@@ -37,7 +37,7 @@ function searchBar(pokemon) {
     })
     displayPokemon(pokemon)
 } 
-
+    
 function displayPokemon(pokemon) {
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
     const id = `#${pokemon.id.toString().padStart(3, "0")}`;

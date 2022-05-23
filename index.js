@@ -24,7 +24,7 @@ function searchBar(pokemon) {
 
     search.addEventListener("input", (e) => {
         const value = e.target.value
-        const filterPokemon = Object.values(pokemon).filter( pokemon => {
+        const filterPokemon = Object.values(pokemon).filter( searchPokemon => {
             // return (pokemon.name.includes(value))
             console.log(pokemon.name)
         })

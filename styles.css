@@ -40,11 +40,31 @@ body {
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
+#pokemonContainer:hover {
+    animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-10px);
+    }
+    40% {
+        transform: translateY(0px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+    80% {
+        transform: translateY(0px);
+    }
+}
+
+
 #pokemonImage {
     background-color: rgb(255, 255, 255, 0.5);
-    border-radius: 50%;
-    width: 350px;
-    height: 350px;
+    border-radius: 50px;
+    width: 320px;
+    height: 320px;
     margin-bottom: 20px;
     margin-top: 40px;
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
@@ -71,4 +91,8 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 20px;
     margin-bottom: 10px;
+}
+
+.hide {
+    display: none;
 }

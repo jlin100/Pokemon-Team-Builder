@@ -1,6 +1,6 @@
 
 async function fetchPokemon() {
-        for(let i = 1; i <= 151; i++) {
+    for(let i = 1; i <= 151; i++) {
         await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
         .then(res => res.json())
         .then( data => {
@@ -12,11 +12,25 @@ async function fetchPokemon() {
             .map((type) => type.type.name)
             .join(", ")
             displayPokemon(pokemon);
-        })
+            searchBar(pokemon);
+        })    
         
-    }
-}
+    }    
+}    
 fetchPokemon();
+
+function searchBar(pokemon) {
+    const search = document.getElementById("search")
+
+    search.addEventListener("input", (e) => {
+        const value = e.target.value
+        const filterPokemon = Object.values(pokemon).filter( pokemon => {
+            // return (pokemon.name.includes(value))
+            console.log(pokemon.name)
+        })
+        searchBar(filterPokemon);
+    })
+} 
 
 function displayPokemon(pokemon) {
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);

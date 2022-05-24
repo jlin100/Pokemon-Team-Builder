@@ -6,12 +6,44 @@
     width: 35%;
 }
 
-:root {
+body {
     background-image: linear-gradient(to right, rgb(209, 252, 252), rgb(231, 244, 200));
 }
 
 .dark-mode {
-    background-color: black;
+    background: linear-gradient(to right, rgb(0, 30, 49), rgb(0, 71, 116), rgb(0,30,49));
+}
+
+.color-switch {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+.switch {
+    width: 2em;
+    height: 1em;
+    border-radius: 10em;
+    background-color:white ;
+    border: 2px solid; 
+    border-color: white;
+    position: absolute;
+    cursor: pointer;
+}
+
+.color-switch-toggle {
+    width: .95em;
+    height: .95em;
+    background-color: rgb(152, 152, 152);
+    position: absolute;
+    border-radius: 10em;
+    top:-0.01em;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+
+#inputColorSwitch:checked ~ label .color-switch-toggle {
+    transform: translatex(1em);
 }
 
 .searchBox {

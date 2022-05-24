@@ -71,7 +71,7 @@ function displayPokemon(pokemon) {
 const colorSwitch = document.getElementById("inputColorSwitch");
 
 function toggleColor() {
-        colorSwitch?.addEventListener("click", () => {
+        colorSwitch.addEventListener("click", () => {
             if(colorSwitch.checked) {
                 darkModeOn();
             }

@@ -11,7 +11,7 @@ body {
 }
 
 .dark-mode {
-    background: linear-gradient(to right, rgb(28, 28, 28),rgb(109, 109, 109),rgb(109, 109, 109), rgb(109, 109, 109), rgb(28, 28, 28));
+    background: linear-gradient(to right, rgb(28, 28, 28),rgb(109, 109, 109),rgb(202, 202, 202), rgb(109, 109, 109), rgb(28, 28, 28));
 }
 
 .color-switch {

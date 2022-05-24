@@ -6,8 +6,12 @@
     width: 35%;
 }
 
-body {
+:root {
     background-image: linear-gradient(to right, rgb(209, 252, 252), rgb(231, 244, 200));
+}
+
+.dark-mode {
+    background-color: black;
 }
 
 .searchBox {

@@ -1,4 +1,13 @@
 
+const colorSwitch = document.getElementById("inputColorSwitch");
+console.log(colorSwitch);
+// if (colorSwitch) {
+//     colorSwitch.addEventListener("click", () => {
+//         console.log("clicked")
+//     });
+
+
+
 async function fetchPokemon() {
     for(let i = 1; i <= 151; i++) {
         await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
@@ -33,7 +42,7 @@ function searchBar(pokemon) {
         const filterPokemon = filterArray.filter(pokemon => {
             return (grabName.includes(value));
         })
-        console.log(filterPokemon)
+        // console.log(filterPokemon)
     })
     displayPokemon(pokemon)
 } 

@@ -13,6 +13,7 @@ async function fetchPokemon() {
             .join(", ")
             
             searchBar(pokemon);
+            pokemonBTN(pokemon);
         })    
         
     }    
@@ -33,9 +34,8 @@ function searchBar(pokemon) {
         const filterPokemon = filterArray.filter(pokemon => {
             return (grabName.includes(value));
         })
-        // console.log(filterPokemon)
+        console.log(filterPokemon)
     })
-    displayPokemon(pokemon)
 } 
 
 function displayPokemon(pokemon) {
@@ -66,12 +66,13 @@ function displayPokemon(pokemon) {
     pokemonContainer.append(img, pokemonID, pokemonName, pokemonType);
     allPokemonContainer.appendChild(pokemonContainer);
     
+    searchBar(pokemon);
 }
 
 const colorSwitch = document.getElementById("inputColorSwitch");
 
 function toggleColor() {
-        colorSwitch.addEventListener("click", () => {
+        colorSwitch.addEventListener("change", () => {
             if(colorSwitch.checked) {
                 darkModeOn();
             }
@@ -90,3 +91,12 @@ function toggleColor() {
  function darkModeOff() {
     document.body.classList.remove("dark-mode");
  }
+
+ const generatePokemon = document.getElementById("btn")
+
+ function pokemonBTN(pokemon) {
+     generatePokemon.addEventListener("click", () => {
+          displayPokemon(pokemon)
+     })
+ }
+

@@ -103,6 +103,10 @@ function toggleColor() {
 
  function pokemonBTN(pokemon) {
      generatePokemon.addEventListener("click", () => {
-          displayPokemon(pokemon)
+          if(generatePokemon.checked) {
+              displayPokemon(pokemon)
+          } else {
+              document.getElementById("pokemonContainer").remove();
+          }
      })
  }

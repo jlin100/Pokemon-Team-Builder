@@ -134,23 +134,27 @@ body {
 }
 
 .generatePokemon {
-    text-align: center;
-}
-#btn {
-    font-size: 25px;
-    background-color: rgb(255, 137, 137);
-    color: rgb(253, 253, 253);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    width: 140px;
-    height: 50px;
-    margin-top: 10px;
-    border-radius: 20px;
-    border-color: white;
-    box-shadow:0 3px 15px rgba(100, 100, 100, 0.5); ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
 }
 
-#btn:hover {
-    background-color: rgb(246, 246, 246);
-    color: rgb(255, 137, 137);
-    border-color: rgb(255, 137, 137);
+.btnColor {
+    display: block;
+    font-size: 25px;
+    width: 150px;
+    height: 30px;
+    background-color: pink;
+    border-radius: 20px;
+    border: 5px solid white;
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+
+.btnColor:hover {
+    background-color: red;
 }

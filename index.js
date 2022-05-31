@@ -11,8 +11,9 @@ async function fetchPokemon() {
             pokemon["type"] = data.types
             .map((type) => type.type.name)
             .join(", ")
+            pokemon["height"] = data.height
+            pokemon["weight"] = data.weight
             
-            searchBar(pokemon)
             pokemonBTN(pokemon);
         })    
         
@@ -20,33 +21,17 @@ async function fetchPokemon() {
 }    
 fetchPokemon();
 
-function searchBar(pokemon) {
-    const filterArray = [];
-    const search = document.getElementById("search")
-    
-    search.addEventListener("input", (e) => {
-        const value = e.target.value.toLowerCase()
-        const pokemonArray = Object.values(pokemon)
-        const grabName = pokemonArray[0]
-
-        if (!filterArray.includes(grabName))
-        filterArray.push(grabName)
-        
-        const filterPokemon = filterArray.filter(pokemon => {
-                return (grabName.includes(value));
-            })
-        displayPokemon(pokemon)
-        console.log(filterPokemon)
-        
-    })
-} 
-
-
-
 
 const allPokemonContainer = document.getElementById("allPokemonContainer");
 
 function displayPokemon(pokemon) {
+    // const filterArray = [];
+    // const nameOfPokemon = [];
+    // const search = document.getElementById("search")
+
+    // const name = pokemonArray.toUpperCase()[0] + pokemonArray.slice(1);
+
+
     const name = pokemon.name.toUpperCase()[0] + pokemon.name.slice(1);
     const id = `#${pokemon.id.toString().padStart(3, "0")}`;
     const type = (pokemon.type[0].toUpperCase() + pokemon.type.slice(1)).split(",")[0];
@@ -54,6 +39,9 @@ function displayPokemon(pokemon) {
     const pokemonContainer = document.createElement("div")
     pokemonContainer.setAttribute("id", "pokemonContainer")
     
+    const likeButton = document.createElement("button")
+    likeButton.setAttribute("id", "likeButton")
+
     const img = document.createElement("img");
     img.setAttribute("id", "pokemonImage");
     img.src = pokemon.image;
@@ -70,9 +58,34 @@ function displayPokemon(pokemon) {
     pokemonType.setAttribute("id", "pokemonType");
     pokemonType.innerHTML = type; 
     
-    pokemonContainer.append(img, pokemonID, pokemonName, pokemonType);
+    pokemonContainer.append(likeButton, img, pokemonID, pokemonName, pokemonType);
     allPokemonContainer.appendChild(pokemonContainer);
     
+    
+    // search.addEventListener("input", (e) => {
+    //     const value = e.target.value.toLowerCase()
+        // const pokemonArray = pokemon.name.includes(value)
+        // console.log(pokemonArray)
+        // if(PokemonArray == true) {
+        //     return PokemonArray().toString();
+        // } else {
+        //     return "none"
+        // }
+        
+        
+        // const pokemonArray = Object.values(pokemon)
+        // let name = pokemonArray[0]
+        
+        // if (!filterArray.includes(name))
+        // filterArray.push(name)
+        
+        // const filterPokemon = filterArray.filter(pokemon => {
+        //         return (name.includes(value));
+        //     })
+        // nameOfPokemon.push(filterPokemon)
+        // console.log(nameOfPokemon)
+        // })
+        
 }
 
 const colorSwitch = document.getElementById("inputColorSwitch");
@@ -105,8 +118,6 @@ function toggleColor() {
      generatePokemon.addEventListener("click", () => {
           if(generatePokemon.checked) {
               displayPokemon(pokemon)
-          } else {
-              document.getElementById("pokemonContainer").remove();
           }
      })
  }

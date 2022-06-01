@@ -15,7 +15,6 @@ async function fetchPokemon() {
             pokemon["weight"] = data.weight
             
             pokemonBTN(pokemon);
-            displayPokemon(pokemon);
         })    
         
     }    
@@ -50,11 +49,20 @@ function displayPokemon(pokemon) {
     pokemonName.setAttribute("id", "pokemonName");
     pokemonName.innerHTML = name;
     
+    let elementClicked = true;
     const readMore = document.createElement("button")
     readMore.setAttribute("id", "readMore")
     readMore.innerText = "Read More"
-    readMore.addEventListener("click", () => {
-        pokemonContainer.append(pokemonType, pokemonHeight, pokemonWeight);
+    readMore.addEventListener("click", (e) => {
+ 
+        if (elementClicked) {
+            pokemonContainer.append(pokemonType, pokemonHeight, pokemonWeight);
+        }else {
+            pokemonContainer.removeChild(pokemonHeight);
+            pokemonContainer.removeChild(pokemonWeight);
+            pokemonContainer.removeChild(pokemonType);     
+        }
+        elementClicked = false
     })
 
     const pokemonType = document.createElement("div");
@@ -106,6 +114,7 @@ function pokemonBTN(pokemon) {
         }
     })
 }
+
 
 
 

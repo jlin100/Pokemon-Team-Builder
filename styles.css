@@ -129,6 +129,37 @@ body {
     margin-bottom: 10px;
 }
 
+#pokemonHeight {
+    color: rgb(134, 134, 134);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#pokemonWeight {
+    color: rgb(134, 134, 134);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#readMore {
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100px;
+    height: 23px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 7px;
+    border-color: white;
+}
+
+#readMore:hover {
+    background-color: rgb(200, 255, 255);
+}
+
 .hide {
     display: none;
 }

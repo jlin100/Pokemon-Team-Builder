@@ -15,6 +15,7 @@ async function fetchPokemon() {
             pokemon["weight"] = data.weight
             
             pokemonBTN(pokemon);
+            displayPokemon(pokemon);
         })    
         
     }    
@@ -49,12 +50,16 @@ function displayPokemon(pokemon) {
     pokemonName.setAttribute("id", "pokemonName");
     pokemonName.innerHTML = name;
     
+    const readMore = document.createElement("button")
+    readMore.setAttribute("id", "readMore")
+    readMore.innerText = "Read More"
+    readMore.addEventListener("click", () => {
+        pokemonContainer.append(pokemonType, pokemonHeight, pokemonWeight);
+    })
+
     const pokemonType = document.createElement("div");
     pokemonType.setAttribute("id", "pokemonType");
     pokemonType.innerHTML = type; 
-    
-    const readMore = document.createElement("button")
-    readMore.setAttribute("id", "readMore")
     
     const pokemonHeight = document.createElement("div")
     pokemonHeight.setAttribute("id", "pokemonHeight")
@@ -64,18 +69,10 @@ function displayPokemon(pokemon) {
     pokemonWeight.setAttribute("id", "pokemonWeight")
     pokemonWeight.innerHTML = weight;
     
-    pokemonContainer.append(img, pokemonID, pokemonName, pokemonType, readMore, pokemonHeight, pokemonWeight);
+    pokemonContainer.append(img, pokemonID, pokemonName, readMore);
     allPokemonContainer.appendChild(pokemonContainer);
-    
+
 }   
-
-const readMoreButton = document.getElementById("readMore")
-
-function readMoreBTN() {
-    readMoreBTN.addEventListener("click", () => {
-        
-    })
-}
 
 const colorSwitch = document.getElementById("inputColorSwitch");
 

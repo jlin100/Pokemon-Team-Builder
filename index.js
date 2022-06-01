@@ -57,10 +57,12 @@ function displayPokemon(pokemon) {
  
         if (elementClicked) {
             pokemonContainer.append(pokemonType, pokemonHeight, pokemonWeight);
+            readMore.innerText = "Read Less"
         }else {
             pokemonContainer.removeChild(pokemonHeight);
             pokemonContainer.removeChild(pokemonWeight);
-            pokemonContainer.removeChild(pokemonType);     
+            pokemonContainer.removeChild(pokemonType); 
+            readMore.innerText = "Read More"  
         }
         elementClicked = false
     })

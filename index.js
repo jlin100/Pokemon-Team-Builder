@@ -61,19 +61,20 @@ function displayPokemon(pokemon) {
         if (elementClicked) {
             pokemonContainer.append(pokemonType, pokemonHeight, pokemonWeight);
             readMore.innerText = "Read Less"
-        }else if (!elementClicked) {
+            document.getElementById("pokemonType").style.visibility = 'visible';
+            document.getElementById("pokemonHeight").style.visibility = 'visible';
+            document.getElementById("pokemonWeight").style.visibility = 'visible';
+        }else {
             // pokemonContainer.removeChild(pokemonType);
             // pokemonContainer.removeChild(pokemonHeight);
             // pokemonContainer.removeChild(pokemonWeight);
+            
+            readMore.innerText = "Read More"  
             document.getElementById("pokemonType").style.visibility = 'hidden';
             document.getElementById("pokemonHeight").style.visibility = 'hidden';
             document.getElementById("pokemonWeight").style.visibility = 'hidden';
-
-            readMore.innerText = "Read More"  
-        } else{
-            
         }
-        elementClicked = false
+        // elementClicked = false
     })
 
     const pokemonType = document.createElement("div");

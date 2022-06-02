@@ -33,6 +33,9 @@ function displayPokemon(pokemon) {
     
     const pokemonContainer = document.createElement("div")
     pokemonContainer.setAttribute("id", "pokemonContainer")
+
+    const pokemonReadMore = document.createElement("div")
+    pokemonReadMore.setAttribute("id", "pokemonReadMore" )
     
     // const likeButton = document.createElement("button")
     // likeButton.setAttribute("id", "likeButton")
@@ -58,11 +61,17 @@ function displayPokemon(pokemon) {
         if (elementClicked) {
             pokemonContainer.append(pokemonType, pokemonHeight, pokemonWeight);
             readMore.innerText = "Read Less"
-        }else {
-            pokemonContainer.removeChild(pokemonHeight);
-            pokemonContainer.removeChild(pokemonWeight);
-            pokemonContainer.removeChild(pokemonType); 
+        }else if (!elementClicked) {
+            // pokemonContainer.removeChild(pokemonType);
+            // pokemonContainer.removeChild(pokemonHeight);
+            // pokemonContainer.removeChild(pokemonWeight);
+            document.getElementById("pokemonType").style.visibility = 'hidden';
+            document.getElementById("pokemonHeight").style.visibility = 'hidden';
+            document.getElementById("pokemonWeight").style.visibility = 'hidden';
+
             readMore.innerText = "Read More"  
+        } else{
+            
         }
         elementClicked = false
     })
@@ -80,6 +89,7 @@ function displayPokemon(pokemon) {
     pokemonWeight.innerHTML = weight;
     
     pokemonContainer.append(img, pokemonID, pokemonName, readMore);
+    // pokemonReadMore.append(pokemonType, pokemonHeight, pokemonWeight)
     allPokemonContainer.appendChild(pokemonContainer);
 
 }   
@@ -130,16 +140,8 @@ function pokemonBTN(pokemon) {
     //     const value = e.target.value.toLowerCase()
     // const pokemonArray = pokemon.name.includes(value)
     // console.log(pokemonArray)
-    // if(PokemonArray == true) {
-        //     return PokemonArray().toString();
-        // } else {
-            //     return "none"
-        // }
-        
-        
         // const pokemonArray = Object.values(pokemon)
         // let name = pokemonArray[0]
-        
         // if (!filterArray.includes(name))
         // filterArray.push(name)
         
@@ -149,3 +151,4 @@ function pokemonBTN(pokemon) {
         // nameOfPokemon.push(filterPokemon)
         // console.log(nameOfPokemon)
         // })
+

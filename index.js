@@ -52,29 +52,22 @@ function displayPokemon(pokemon) {
     pokemonName.setAttribute("id", "pokemonName");
     pokemonName.innerHTML = name;
     
-    let elementClicked = true;
-    const readMore = document.createElement("button")
+    const readMore = document.createElement("input")
     readMore.setAttribute("id", "readMore")
-    readMore.innerText = "Read More"
-    readMore.addEventListener("click", (e) => {
+    readMore.setAttribute("type", "checkbox")
+    // readMore.innerText = "Read More"
+    readMore.addEventListener("click", ( ) => {
  
-        if (elementClicked) {
+        if (readMore.checked) {
             pokemonContainer.append(pokemonType, pokemonHeight, pokemonWeight);
-            readMore.innerText = "Read Less"
-            document.getElementById("pokemonType").style.visibility = 'visible';
-            document.getElementById("pokemonHeight").style.visibility = 'visible';
-            document.getElementById("pokemonWeight").style.visibility = 'visible';
+            // readMore.innerText = "Read Less"
         }else {
-            // pokemonContainer.removeChild(pokemonType);
-            // pokemonContainer.removeChild(pokemonHeight);
-            // pokemonContainer.removeChild(pokemonWeight);
-            
-            readMore.innerText = "Read More"  
-            document.getElementById("pokemonType").style.visibility = 'hidden';
-            document.getElementById("pokemonHeight").style.visibility = 'hidden';
-            document.getElementById("pokemonWeight").style.visibility = 'hidden';
+            pokemonContainer.removeChild(pokemonType);
+            pokemonContainer.removeChild(pokemonHeight);
+            pokemonContainer.removeChild(pokemonWeight);
+            // readMore.innerText = "Read More"  
         }
-        // elementClicked = false
+
     })
 
     const pokemonType = document.createElement("div");

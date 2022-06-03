@@ -15,16 +15,16 @@ async function fetchPokemon() {
             pokemon["weight"] = data.weight
             
             pokemonBTN(pokemon);
+           
         })    
-        
     }    
 }    
 fetchPokemon();
 
 const allPokemonContainer = document.getElementById("allPokemonContainer");
-
+        
 function displayPokemon(pokemon) {
-    
+
     const name = pokemon.name.toUpperCase()[0] + pokemon.name.slice(1);
     const id = `#${pokemon.id.toString().padStart(3, "0")}`;
     const type = `Type: ${(pokemon.type[0].toUpperCase() + pokemon.type.slice(1)).split(",")[0]}`;
@@ -36,9 +36,6 @@ function displayPokemon(pokemon) {
 
     const pokemonReadMore = document.createElement("div")
     pokemonReadMore.setAttribute("id", "pokemonReadMore" )
-    
-    // const likeButton = document.createElement("button")
-    // likeButton.setAttribute("id", "likeButton")
     
     const img = document.createElement("img");
     img.setAttribute("id", "pokemonImage");
@@ -83,7 +80,7 @@ function displayPokemon(pokemon) {
     
     pokemonContainer.append(img, pokemonID, pokemonName, readMore, readMoreLabel);
     allPokemonContainer.appendChild(pokemonContainer);
-
+    
 }   
 
 const colorSwitch = document.getElementById("inputColorSwitch");
@@ -118,29 +115,3 @@ function pokemonBTN(pokemon) {
         }
     })
 }
-
-
-
-
-// const filterArray = [];
-// const nameOfPokemon = [];
-// const search = document.getElementById("search")
-
-// const name = pokemonArray.toUpperCase()[0] + pokemonArray.slice(1);
-
-// search.addEventListener("input", (e) => {
-    //     const value = e.target.value.toLowerCase()
-    // const pokemonArray = pokemon.name.includes(value)
-    // console.log(pokemonArray)
-        // const pokemonArray = Object.values(pokemon)
-        // let name = pokemonArray[0]
-        // if (!filterArray.includes(name))
-        // filterArray.push(name)
-        
-        // const filterPokemon = filterArray.filter(pokemon => {
-        //         return (name.includes(value));
-        //     })
-        // nameOfPokemon.push(filterPokemon)
-        // console.log(nameOfPokemon)
-        // })
-

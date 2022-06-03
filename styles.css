@@ -46,20 +46,6 @@ body {
     transform: translatex(1em);
 }
 
-/* .searchBox {
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-.searchBox input {
-    font-size: 1rem;
-    width: 30%;
-    height: 5%;
-    border: 0;
-    border-radius: 8px;
-} */
-
 #pokemonContainer {
     display: grid;
     float: left;
@@ -157,10 +143,6 @@ body {
     left: 10px;
     top: -25px;
     
-}
-
-.hide {
-    display: none;
 }
 
 .generatePokemon {

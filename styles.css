@@ -88,7 +88,7 @@ body {
     width: 320px;
     height: 320px;
     margin-bottom: 20px;
-    margin-top: 40px;
+    margin-top: 10px;
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 }
 
@@ -177,12 +177,16 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     background-color: white;
-    height: 300px;
+    height: 280px;
     text-align: center;
     border-radius: 50px;
     margin-top: 20px;
     margin-bottom: 30px;
     box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+
+#addPokemon {
+    margin-top: 10px;
 }
 
 #addPokemon #pokemonImage{
@@ -211,3 +215,16 @@ body {
     background-color: rgb(250, 248, 186);
 }
 
+#addBTN {
+    margin-top: 10px;
+    border-radius: 7px;
+    position: relative;
+    left: 135px;
+    top: 5px;
+    border-color: white;
+    background-color: rgb(183, 250, 188);
+}
+
+#addBTN:hover {
+    background-color: rgb(250, 248, 186);
+}

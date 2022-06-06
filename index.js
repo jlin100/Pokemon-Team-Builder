@@ -22,9 +22,10 @@ async function fetchPokemon() {
 fetchPokemon();
 
 const allPokemonContainer = document.getElementById("allPokemonContainer");
-        
-function displayPokemon(pokemon) {
 
+
+function displayPokemon(pokemon) {
+    
     const name = pokemon.name.toUpperCase()[0] + pokemon.name.slice(1);
     const id = `#${pokemon.id.toString().padStart(3, "0")}`;
     const type = `Type: ${(pokemon.type[0].toUpperCase() + pokemon.type.slice(1)).split(",")[0]}`;
@@ -33,7 +34,7 @@ function displayPokemon(pokemon) {
     
     const pokemonContainer = document.createElement("div")
     pokemonContainer.setAttribute("id", "pokemonContainer")
-
+    
     const pokemonReadMore = document.createElement("div")
     pokemonReadMore.setAttribute("id", "pokemonReadMore" )
     
@@ -53,7 +54,7 @@ function displayPokemon(pokemon) {
     readMore.setAttribute("id", "readMore")
     readMore.setAttribute("type", "checkbox")
     readMore.addEventListener("click", ( ) => {
- 
+        
         if (readMore.checked) {
             pokemonContainer.append(pokemonType, pokemonHeight, pokemonWeight);
         }else {
@@ -96,32 +97,56 @@ function displayPokemon(pokemon) {
         pokemonWeight.style.color = "rgb(134, 134, 134)"
     })
     
-    pokemonContainer.append(img, pokemonID, pokemonName, readMore, readMoreLabel);
-    allPokemonContainer.appendChild(pokemonContainer);
-}   
+    const removeBTN = document.createElement("button")
+    removeBTN.setAttribute("id", "removeBTN")
+    removeBTN.innerText = "-"
+    
+    const allAddedPokemon = document.getElementById("allAddedPokemon")
+    const addPokemon = document.createElement("div")
+    addPokemon.setAttribute("id", "addPokemon")
+    const addPokemonImage = img.cloneNode(true)
+    const addPokemonName = pokemonName.cloneNode(true)
 
-const colorSwitch = document.getElementById("inputColorSwitch");
+    const addBTN = document.createElement("button")
+    addBTN.setAttribute("id", "addBTN")
+    addBTN.innerText = "+"
+    addBTN.addEventListener("click", () => {
 
-function toggleColor() {
-    colorSwitch.addEventListener("change", () => {
-        if(colorSwitch.checked) {
-            darkModeOn();
-        }
-        else {
-            darkModeOff();
-        }
+            addPokemon.append(addPokemonImage, addPokemonName, removeBTN,)
+            allAddedPokemon.appendChild(addPokemon)
+    
+            removeBTN.addEventListener("click", () => {
+                allAddedPokemon.removeChild(addPokemon)
+            }) 
+    })
+
+        pokemonContainer.append(addBTN, img, pokemonID, pokemonName, readMore, readMoreLabel);
+        allPokemonContainer.appendChild(pokemonContainer);
         
-    })   
-}
-toggleColor();   
-
-function darkModeOn() {
-    document.body.classList.add("dark-mode");
-}
-
-function darkModeOff() {
-    document.body.classList.remove("dark-mode");
-}
+    }   
+    
+    const colorSwitch = document.getElementById("inputColorSwitch");
+    
+    function toggleColor() {
+        colorSwitch.addEventListener("change", () => {
+            if(colorSwitch.checked) {
+                darkModeOn();
+            }
+            else {
+                darkModeOff();
+            }
+            
+        })   
+    }
+    toggleColor();   
+    
+    function darkModeOn() {
+        document.body.classList.add("dark-mode");
+    }
+    
+    function darkModeOff() {
+        document.body.classList.remove("dark-mode");
+    }
 
 const generatePokemon = document.getElementById("btn")
 

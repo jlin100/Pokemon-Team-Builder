@@ -122,7 +122,7 @@ function displayPokemon(pokemon) {
 
         pokemonContainer.append(addBTN, img, pokemonID, pokemonName, readMore, readMoreLabel);
         allPokemonContainer.appendChild(pokemonContainer);
-        
+    toggleColor();
     }   
     
     const colorSwitch = document.getElementById("inputColorSwitch");
@@ -131,9 +131,11 @@ function displayPokemon(pokemon) {
         colorSwitch.addEventListener("change", () => {
             if(colorSwitch.checked) {
                 darkModeOn();
+                allAddedPokemon.style.backgroundColor = "rgba(45, 45, 45, 0.6)"
             }
             else {
                 darkModeOff();
+                allAddedPokemon.style.backgroundColor = "rgb(255, 255, 255, 0.6)"
             }
             
         })   

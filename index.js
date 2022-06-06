@@ -65,22 +65,39 @@ function displayPokemon(pokemon) {
     const readMoreLabel = document.createElement("label");
     readMoreLabel.setAttribute("id", "label")
     readMoreLabel.textContent = "Read More"
-
+    
     const pokemonType = document.createElement("div");
     pokemonType.setAttribute("id", "pokemonType");
     pokemonType.innerHTML = type; 
+    pokemonType.addEventListener("mouseover", () => {
+        pokemonType.style.color = "red"
+    })
+    pokemonType.addEventListener("mouseout", () => {
+        pokemonType.style.color = "rgb(134, 134, 134)"
+    })
     
     const pokemonHeight = document.createElement("div")
     pokemonHeight.setAttribute("id", "pokemonHeight")
     pokemonHeight.innerHTML = height;
+    pokemonHeight.addEventListener("mouseover", () => {
+        pokemonHeight.style.color = "red"
+    })
+    pokemonHeight.addEventListener("mouseout", () => {
+        pokemonHeight.style.color = "rgb(134, 134, 134)"
+    })
     
     const pokemonWeight = document.createElement("div")
     pokemonWeight.setAttribute("id", "pokemonWeight")
     pokemonWeight.innerHTML = weight;
+    pokemonWeight.addEventListener("mouseover", () => {
+        pokemonWeight.style.color = "red"
+    })
+    pokemonWeight.addEventListener("mouseout", () => {
+        pokemonWeight.style.color = "rgb(134, 134, 134)"
+    })
     
     pokemonContainer.append(img, pokemonID, pokemonName, readMore, readMoreLabel);
     allPokemonContainer.appendChild(pokemonContainer);
-    
 }   
 
 const colorSwitch = document.getElementById("inputColorSwitch");

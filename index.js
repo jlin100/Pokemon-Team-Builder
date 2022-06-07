@@ -111,13 +111,13 @@ function displayPokemon(pokemon) {
     addBTN.setAttribute("id", "addBTN")
     addBTN.innerText = "+"
     addBTN.addEventListener("click", () => {
-
-            addPokemon.append(addPokemonImage, addPokemonName, removeBTN,)
-            allAddedPokemon.appendChild(addPokemon)
-    
-            removeBTN.addEventListener("click", () => {
-                allAddedPokemon.removeChild(addPokemon)
-            }) 
+        let count = 0;
+        count++;
+        addPokemon.append(addPokemonImage, addPokemonName, removeBTN,)
+        allAddedPokemon.appendChild(addPokemon)
+        
+        removeBTN.addEventListener("click", () => {
+        }) 
     })
 
         pokemonContainer.append(addBTN, img, pokemonID, pokemonName, readMore, readMoreLabel);
@@ -126,15 +126,18 @@ function displayPokemon(pokemon) {
     }   
     
     const colorSwitch = document.getElementById("inputColorSwitch");
+    const displayTitle = document.getElementById("displayTitle")
     
     function toggleColor() {
         colorSwitch.addEventListener("change", () => {
             if(colorSwitch.checked) {
                 darkModeOn();
+                displayTitle.style.color = "rgba(255, 255, 255, 0.6)"
                 allAddedPokemon.style.backgroundColor = "rgba(45, 45, 45, 0.6)"
             }
             else {
                 darkModeOff();
+                displayTitle.style.color = "rgb(0, 0, 0, 0.6)"
                 allAddedPokemon.style.backgroundColor = "rgb(255, 255, 255, 0.6)"
             }
             

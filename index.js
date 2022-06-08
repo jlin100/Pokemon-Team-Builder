@@ -19,7 +19,6 @@ async function fetchPokemon() {
         })    
     }    
 }    
-fetchPokemon();
 
 const allPokemonContainer = document.getElementById("allPokemonContainer");
 
@@ -111,12 +110,12 @@ function displayPokemon(pokemon) {
     addPokemon.setAttribute("id", "addPokemon")
     const addPokemonImage = img.cloneNode(true)
     const addPokemonName = pokemonName.cloneNode(true)
-
+    
     const addBTN = document.createElement("button")
     count = 0;
     addBTN.setAttribute("id", "addBTN")
     addBTN.innerText = "+"
-
+    
     addBTN.addEventListener("click", () => {
         count += 1; 
         if (count <= 6) {
@@ -128,10 +127,10 @@ function displayPokemon(pokemon) {
             alert ("Your team is full!")
         }
     })
-        pokemonContainer.append(addBTN, img, pokemonID, pokemonName, readMore, readMoreLabel);
-        allPokemonContainer.appendChild(pokemonContainer);
-
-toggleColor();
+    pokemonContainer.append(addBTN, img, pokemonID, pokemonName, readMore, readMoreLabel);
+    allPokemonContainer.appendChild(pokemonContainer);
+    
+    toggleColor();
 }   
 
 const colorSwitch = document.getElementById("inputColorSwitch");
@@ -171,3 +170,5 @@ function pokemonBTN(pokemon) {
         }
     })
 }
+
+fetchPokemon();

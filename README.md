@@ -1,4 +1,7 @@
 # Pokemon Team Builder
+This is a simple website that utilizes the [PokeAPI](https://pokeapi.co/) and allows you to review all 151 pokemon from the 1st generation. You are able to select and add each indiviudal pokemon and build a team based on your style and personality.
+
+You can visit the live Pokemon Team Builder here: [Pokemon Team Builder](https://jlin100.github.io/phase-1-project/)
 
 ## Get Your Own Copy
 To create your copy of this project:

@@ -100,6 +100,11 @@ function displayPokemon(pokemon) {
     const removeBTN = document.createElement("button")
     removeBTN.setAttribute("id", "removeBTN")
     removeBTN.innerText = "-"
+    removeBTN.addEventListener("click", () => {
+        count -= 1;
+        allAddedPokemon.removeChild(addPokemon)
+        addBTN.disabled = false;
+    }) 
     
     const allAddedPokemon = document.getElementById("allAddedPokemon")
     const addPokemon = document.createElement("div")
@@ -108,50 +113,54 @@ function displayPokemon(pokemon) {
     const addPokemonName = pokemonName.cloneNode(true)
 
     const addBTN = document.createElement("button")
+    count = 0;
     addBTN.setAttribute("id", "addBTN")
     addBTN.innerText = "+"
-    addBTN.addEventListener("click", () => {
-        let count = 0;
-        count++;
-        addPokemon.append(addPokemonImage, addPokemonName, removeBTN,)
-        allAddedPokemon.appendChild(addPokemon)
-        
-        removeBTN.addEventListener("click", () => {
-        }) 
-    })
 
+    addBTN.addEventListener("click", () => {
+        count += 1; 
+        if (count <= 6) {
+            addPokemon.append(addPokemonImage, addPokemonName, removeBTN,);
+            allAddedPokemon.appendChild(addPokemon);
+            addBTN.disabled = true;
+        } else if (count = 7) {
+            count = 6;
+            alert ("Your team is full!")
+        }
+    })
         pokemonContainer.append(addBTN, img, pokemonID, pokemonName, readMore, readMoreLabel);
         allPokemonContainer.appendChild(pokemonContainer);
-    toggleColor();
-    }   
-    
-    const colorSwitch = document.getElementById("inputColorSwitch");
-    const displayTitle = document.getElementById("displayTitle")
-    
-    function toggleColor() {
-        colorSwitch.addEventListener("change", () => {
-            if(colorSwitch.checked) {
-                darkModeOn();
-                displayTitle.style.color = "rgba(255, 255, 255, 0.6)"
-                allAddedPokemon.style.backgroundColor = "rgba(45, 45, 45, 0.6)"
-            }
-            else {
-                darkModeOff();
-                displayTitle.style.color = "rgb(0, 0, 0, 0.6)"
-                allAddedPokemon.style.backgroundColor = "rgb(255, 255, 255, 0.6)"
-            }
-            
-        })   
-    }
-    toggleColor();   
-    
-    function darkModeOn() {
-        document.body.classList.add("dark-mode");
-    }
-    
-    function darkModeOff() {
-        document.body.classList.remove("dark-mode");
-    }
+
+toggleColor();
+}   
+
+const colorSwitch = document.getElementById("inputColorSwitch");
+const displayTitle = document.getElementById("displayTitle")
+
+function toggleColor() {
+    colorSwitch.addEventListener("change", () => {
+        if(colorSwitch.checked) {
+            darkModeOn();
+            displayTitle.style.color = "rgba(255, 255, 255, 0.6)"
+            allAddedPokemon.style.backgroundColor = "rgba(45, 45, 45, 0.6)"
+        }
+        else {
+            darkModeOff();
+            displayTitle.style.color = "rgb(0, 0, 0, 0.6)"
+            allAddedPokemon.style.backgroundColor = "rgb(255, 255, 255, 0.6)"
+        }
+        
+    })   
+}
+toggleColor();   
+
+function darkModeOn() {
+    document.body.classList.add("dark-mode");
+}
+
+function darkModeOff() {
+    document.body.classList.remove("dark-mode");
+}
 
 const generatePokemon = document.getElementById("btn")
 

@@ -186,7 +186,7 @@ body {
 }
 
 #addPokemon {
-    background-color: rgb(255, 0, 0, 0.9);
+    background-color: rgba(201, 255, 193, 0.9);
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 30px;
@@ -206,7 +206,7 @@ body {
 
 #addPokemon #pokemonName {
     font-size: 20px;
-    color: white;
+    color: rgb(0, 0, 0, 0.8);
     margin-bottom: 10px;
 }
 
@@ -217,6 +217,7 @@ body {
     height: 20px;
     border-color: white;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 #removeBTN:hover {
@@ -231,6 +232,7 @@ body {
     top: 5px;
     border-color: white;
     background-color: rgb(183, 250, 188);
+    cursor: pointer;
 }
 
 #addBTN:hover {

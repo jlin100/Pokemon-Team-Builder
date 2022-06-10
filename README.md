@@ -3,7 +3,7 @@ This is a simple website that utilizes the [PokeAPI](https://pokeapi.co/) and al
 
 You can visit the live Pokemon Team Builder here: [Pokemon Team Builder](https://jlin100.github.io/Pokemon-Team-Builder/)
 
-You can also [watch a short walkthrough](link of video) of the project 
+You can also [watch a short walkthrough](https://drive.google.com/file/d/1DRRzfkXMJYoUQdaywzOx9gVjSUl6aR06/view?usp=sharing) of the project 
 
 ## Get Your Own Copy
 To create your copy of this project:

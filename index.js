@@ -1,9 +1,9 @@
 
 const allPokemonContainer = document.getElementById("allPokemonContainer");
 
-async function fetchPokemon() {
+function fetchPokemon() {
     for(let i = 1; i <= 151; i++) {
-        await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
         .then(res => res.json())
         .then( data => {
             const pokemon = {};
@@ -23,7 +23,7 @@ async function fetchPokemon() {
 fetchPokemon();
 
 
-function displayPokemon(pokemon) {
+async function displayPokemon(pokemon) {
     const name = pokemon.name.toUpperCase()[0] + pokemon.name.slice(1);
     const id = `#${pokemon.id.toString().padStart(3, "0")}`;
     const type = `Type: ${(pokemon.type[0].toUpperCase() + pokemon.type.slice(1)).split(",")[0]}`;
@@ -74,7 +74,7 @@ function displayPokemon(pokemon) {
     const allAddedPokemon = document.getElementById("allAddedPokemon")
     const addPokemon = document.createElement("div")
     addPokemon.setAttribute("id", "addPokemon")
-    
+
     const removeBTN = document.createElement("button")
     removeBTN.setAttribute("id", "removeBTN")
     removeBTN.innerText = "-"

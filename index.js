@@ -1,9 +1,9 @@
 
 const allPokemonContainer = document.getElementById("allPokemonContainer");
 
-function fetchPokemon() {
+async function fetchPokemon() {
     for(let i = 1; i <= 151; i++) {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+        await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
         .then(res => res.json())
         .then( data => {
             const pokemon = {};

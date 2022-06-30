@@ -1,5 +1,5 @@
 
-const allPokemonContainer = document.getElementById("allPokemonContainer");
+let allPokemonContainer = document.getElementById("allPokemonContainer");
 
 async function fetchPokemon() {
     for(let i = 1; i <= 151; i++) {
@@ -175,9 +175,9 @@ async function highlightText(pokemonType, pokemonHeight, pokemonWeight) {
 
 // button to remove card from team
 async function removeCard(removeBTN, allAddedPokemon, addBTN) {
-    removeBTN.addEventListener("click", () => {
+    removeBTN.addEventListener("click", (e) => {
         count -= 1;
-        allAddedPokemon.removeChild(addPokemon)
+        allAddedPokemon.removeChild(e.target.parentElement)
         addBTN.disabled = false;
     }) 
 }
